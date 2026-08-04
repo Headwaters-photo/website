@@ -17,7 +17,7 @@ export default function PricingPage() {
 
         <section className="flex flex-1 items-center px-6 py-20 sm:px-10 sm:py-24">
           <div className="mx-auto w-full max-w-3xl text-center">
-            <p className="font-brand text-xs font-semibold uppercase tracking-[0.16em] text-[var(--logo-blue-bright)] sm:text-sm">
+            <p className="font-brand text-xs font-semibold uppercase tracking-[0.16em] text-[var(--logo-blue-eyebrow)] sm:text-sm">
               Pricing
             </p>
             <h1
@@ -32,7 +32,7 @@ export default function PricingPage() {
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-[1.6] text-slate-700 sm:text-xl">
               Headwaters is still in development, and we’re working through the
               details carefully. Pricing will be shared as the experience comes
-              to life
+              to life.
             </p>
             <Link
               href="/"

@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -105,6 +107,7 @@ export function SiteHeader() {
           </Link>
           <Link
             href="/pricing"
+            aria-current={pathname === "/pricing" ? "page" : undefined}
             className="nav-link inline-flex min-h-11 min-w-22 items-center justify-center whitespace-nowrap rounded-sm text-base font-medium tracking-[0.035em] text-slate-700 lg:text-lg"
           >
             Pricing
@@ -132,6 +135,7 @@ export function SiteHeader() {
             </Link>
             <Link
               href="/pricing"
+              aria-current={pathname === "/pricing" ? "page" : undefined}
               onClick={closeMenu}
               className="nav-link flex min-h-12 items-center rounded-lg px-4 text-base font-medium tracking-[0.035em] text-slate-700"
             >
