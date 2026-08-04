@@ -11,7 +11,9 @@ Update this file after any decision that changes the active sprint, priorities, 
 
 ## Current outcome
 
-**Final Web - HQ decision: Ship.**
+**Released successfully.**
+
+Commit `8bcdd0cee634cd28b48770f1bfaeb1c0921fc35e` (`Harden website release readiness`) is deployed through the existing Vercel Git integration at [headwaters.photo](https://headwaters.photo). The home and Pricing routes return HTTP 200 and the production smoke check passed.
 
 The product/accessibility work in the [release-readiness handoff](./reviews/website-release-readiness-baseline.md) and the [production dependency remediation](./reviews/website-dependency-security-remediation.md) are accepted. The known product gaps are closed, all 42 smoke checks pass across Chromium, Firefox, and WebKit, lint and the production build pass, and the production audit reports zero vulnerabilities.
 
@@ -23,15 +25,14 @@ No implementation sprint is active. The accepted release includes the existing h
 
 ## Next decisions
 
-1. Commit and release the accepted working-tree changes through the normal repository workflow.
-2. Confirm the deployed routes with a short production smoke check.
-3. Return to Web - HQ to select the next bounded product outcome; do not roll it into this release.
+1. Archive the completed release working task after its handoff is retained here.
+2. Select the next bounded product outcome in Web - HQ; do not roll it into the completed release.
 
 ## Active backlog
 
 | Priority | Item | Why now | Status |
 | --- | --- | --- | --- |
-| P0 | Website release-readiness changeset | Product baseline and production dependency remediation are accepted | Ready to ship |
+| P0 | Website release-readiness changeset | Product baseline and production dependency remediation are accepted | Released |
 | P2 | Development-tooling `brace-expansion` remediation | Full audit has one high-severity DoS group, but production audit is clean | Non-blocking maintenance |
 | P2 | Align `eslint-config-next` with the Next.js line | Lint passes, but the config remains on 16.2.12 after the production-only upgrade | Future dependency maintenance |
 | P2 | Physical iOS/Android and vendor-browser verification | Engine proxies passed; exact devices remain unverified | Accepted residual risk |
@@ -44,6 +45,7 @@ No implementation sprint is active. The accepted release includes the existing h
 
 | Date | Decision | Rationale |
 | --- | --- | --- |
+| 2026-08-04 | Record the website release as successfully deployed at commit `8bcdd0cee634cd28b48770f1bfaeb1c0921fc35e`. | Vercel deployed the synchronized `main` branch; both production routes returned HTTP 200 and the production interaction, image, overflow, accessibility, and console checks passed. |
 | 2026-08-04 | **Ship** the accepted website release-readiness changes after the normal commit/release workflow. | The product baseline passes, 42/42 cross-engine smoke checks pass, lint and build pass, and the production audit is clean after the bounded Next.js 16.3.0 upgrade. The remaining dev-only audit group and physical-device uncertainty do not affect the shipped runtime and are explicitly accepted as non-blocking risks. |
 | 2026-08-04 | Accept the release-readiness baseline but choose **Iterate**, deferring ship for one bounded production dependency-security remediation. | Product checks pass, but owner review confirmed three high-severity production dependency findings with a non-major Next.js remediation path; carrying them into a release is unnecessary risk. |
 | 2026-08-04 | Select a bounded website release-readiness baseline sprint and adopt WCAG 2.2 AA for the current marketing shell. | The acceptance review found a coherent core experience with 7 passes, one bounded contrast failure, and two release-confidence uncertainties; iteration is justified, but redesign or feature expansion is not. |
