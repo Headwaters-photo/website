@@ -46,11 +46,11 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="font-brand absolute inset-x-0 top-0 z-10 flex h-[75px] items-center justify-between border-b border-slate-950/8 bg-white px-4 sm:px-6 lg:px-10">
+    <header className="site-header font-brand absolute inset-x-0 top-0 z-10 flex h-[75px] items-center justify-between border-b border-slate-950/8 bg-[var(--header-background)] px-4 text-[var(--header-foreground)] sm:px-6 lg:px-10">
       <Link
         href="/"
         aria-label="Headwaters home"
-        className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--logo-blue-bright)]"
+        className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--logo-blue-eyebrow)]"
       >
         <Image
           src="/headwaters-logo-horizontal-v2.png"
@@ -68,7 +68,7 @@ export function SiteHeader() {
         aria-controls="mobile-navigation"
         aria-expanded={isMenuOpen}
         onClick={() => setIsMenuOpen((open) => !open)}
-        className="inline-flex size-11 items-center justify-center rounded-sm text-slate-800 transition-colors hover:text-[var(--logo-blue-bright-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--logo-blue-bright)] sm:hidden"
+        className="inline-flex size-11 items-center justify-center rounded-sm transition-colors hover:text-[var(--logo-blue-bright-ink)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--logo-blue-eyebrow)] sm:hidden"
       >
         <svg
           aria-hidden="true"
@@ -101,20 +101,20 @@ export function SiteHeader() {
         >
           <Link
             href="/#features"
-            className="nav-link inline-flex min-h-11 min-w-22 items-center justify-center whitespace-nowrap rounded-sm text-base font-medium tracking-[0.035em] text-slate-700 lg:text-lg"
+            className="nav-link inline-flex min-h-11 min-w-22 items-center justify-center whitespace-nowrap rounded-sm text-base font-medium tracking-[0.035em] lg:text-lg"
           >
             Features
           </Link>
           <Link
             href="/pricing"
             aria-current={pathname === "/pricing" ? "page" : undefined}
-            className="nav-link inline-flex min-h-11 min-w-22 items-center justify-center whitespace-nowrap rounded-sm text-base font-medium tracking-[0.035em] text-slate-700 lg:text-lg"
+            className="nav-link inline-flex min-h-11 min-w-22 items-center justify-center whitespace-nowrap rounded-sm text-base font-medium tracking-[0.035em] lg:text-lg"
           >
             Pricing
           </Link>
         </nav>
 
-        <span className="hidden min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-slate-950 px-4 py-2.5 text-sm font-medium tracking-[0.025em] text-white shadow-[0_8px_24px_rgba(15,23,42,0.16)] sm:inline-flex sm:px-6 sm:text-base lg:text-lg">
+        <span className="hidden min-h-11 items-center justify-center whitespace-nowrap rounded-full bg-[var(--header-foreground)] px-4 py-2.5 text-sm font-medium tracking-[0.025em] text-white shadow-[0_8px_24px_rgba(15,23,42,0.16)] sm:inline-flex sm:px-6 sm:text-base lg:text-lg">
           In development
         </span>
       </div>
@@ -129,7 +129,7 @@ export function SiteHeader() {
             <Link
               href="/#features"
               onClick={closeMenu}
-              className="nav-link flex min-h-12 items-center rounded-lg px-4 text-base font-medium tracking-[0.035em] text-slate-700"
+              className="nav-link flex min-h-12 items-center rounded-lg px-4 text-base font-medium tracking-[0.035em]"
             >
               Features
             </Link>
@@ -137,13 +137,13 @@ export function SiteHeader() {
               href="/pricing"
               aria-current={pathname === "/pricing" ? "page" : undefined}
               onClick={closeMenu}
-              className="nav-link flex min-h-12 items-center rounded-lg px-4 text-base font-medium tracking-[0.035em] text-slate-700"
+              className="nav-link flex min-h-12 items-center rounded-lg px-4 text-base font-medium tracking-[0.035em]"
             >
               Pricing
             </Link>
           </nav>
           <div className="mt-2 border-t border-slate-950/8 px-2 pt-3">
-            <span className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-full bg-slate-950 px-4 py-2 text-sm font-medium tracking-[0.025em] text-white shadow-[0_8px_24px_rgba(15,23,42,0.16)]">
+            <span className="inline-flex min-h-10 items-center justify-center whitespace-nowrap rounded-full bg-[var(--header-foreground)] px-4 py-2 text-sm font-medium tracking-[0.025em] text-white shadow-[0_8px_24px_rgba(15,23,42,0.16)]">
               In development
             </span>
           </div>

@@ -7,6 +7,8 @@
   --logo-blue-medium: #8cc6ff;
   --logo-blue-bright: #198cff;
   --logo-blue-eyebrow: #1776d7;
+  --header-background: #e8f3ff;
+  --header-foreground: #163a52;
   --logo-blue-bright-ink: color-mix(
     in srgb,
     var(--logo-blue-bright) 72%,
@@ -112,6 +114,10 @@ cite {
 .nav-link:focus-visible {
   outline: 2px solid var(--logo-blue-bright);
   outline-offset: 4px;
+}
+
+.site-header .nav-link:focus-visible {
+  outline-color: var(--logo-blue-eyebrow);
 }
 
 .footer-link,
