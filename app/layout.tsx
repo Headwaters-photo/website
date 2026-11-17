@@ -70,9 +70,8 @@ const sourceSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Headwaters — A better home for your photos",
-  description:
-    "A new space for photographers to preserve the places, stories, and experiences that give their images meaning.",
+  title: "Headwaters — Coming Soon",
+  description: "Headwaters is coming soon.",
 };
 
 export default function RootLayout({

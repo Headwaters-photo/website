@@ -1,6 +1,6 @@
 # Web — Now
 
-Last updated: 2026-08-04
+Last updated: 2026-11-17
 Owner: Web - HQ task
 
 ## Purpose
@@ -11,9 +11,9 @@ Update this file after any decision that changes the active sprint, priorities, 
 
 ## Current outcome
 
-**Released successfully; one bounded brand-continuity update is selected.**
+**Keep the website active as the public publishing surface for app testing.**
 
-Commit `8bcdd0cee634cd28b48770f1bfaeb1c0921fc35e` (`Harden website release readiness`) is deployed through the existing Vercel Git integration at [headwaters.photo](https://headwaters.photo). The home and Pricing routes return HTTP 200 and the production smoke check passed.
+The public website remains at [headwaters.photo](https://headwaters.photo), while the application remains at `app.headwaters.photo`. This preserves a useful product boundary: the app is the private creation/workspace experience and the apex website can become the public publishing and viewing experience.
 
 The product/accessibility work in the [release-readiness handoff](./reviews/website-release-readiness-baseline.md) and the [production dependency remediation](./reviews/website-dependency-security-remediation.md) are accepted. The known product gaps are closed, all 42 smoke checks pass across Chromium, Firefox, and WebKit, lint and the production build pass, and the production audit reports zero vulnerabilities.
 
@@ -21,30 +21,22 @@ Physical-device coverage remains an accepted uncertainty. One high-severity `bra
 
 ## Sprint boundary
 
-- In scope:
-  - Adopt the evaluated website masthead background at exactly `#E8F3FF`.
-  - Use `#163A52` for header navigation and the “In development” pill, with white pill text.
-  - Use the existing `#1776D7` brand blue for header focus outlines so non-text contrast remains above 3:1.
-  - Keep the mobile menu white and preserve all current dimensions, content, structure, and behavior.
-  - Re-run lint, build, and the 42-check smoke suite before release.
-- Out of scope:
-  - App color changes, website theming, redesign, new content, new navigation, or feature work.
-  - Any change outside the shared header and its necessary focus styling.
-- Done when:
-  - The approved prototype is reproduced without visual or behavioral drift.
-  - Required checks pass and the update is deployed and production-smoke-tested.
+No website implementation sprint is active. Do not decommission or redirect the apex domain. New website scope should be driven by a bounded app publishing experiment rather than general marketing-site expansion.
+
+The interim home page is a “Coming Soon” heading above the existing photo, with a centered logo in the masthead and a centered copyright line in the footer. The Pricing route is retired.
 
 ## Next decisions
 
-1. Ask the existing header-color prototype task to promote the approved treatment through the normal commit, push, and release workflow.
-2. Review its production handoff in Web - HQ.
-3. Return the website to maintenance mode and focus product work on the app.
+1. Define the first app publishing experiment, including what is published, who can view it, and how its public URL is created.
+2. Decide the minimum public route and presentation required at `headwaters.photo`.
+3. Create a cross-repository bounded sprint only when the app-side publishing contract is ready.
 
 ## Active backlog
 
 | Priority | Item | Why now | Status |
 | --- | --- | --- | --- |
-| P0 | Adopt website header brand tint | Improves app/website continuity while preserving clear product differentiation | Selected |
+| P0 | Public publishing experiment | Gives the app a real public output surface without collapsing the app and website roles | Awaiting app contract |
+| P1 | Website header brand tint | Improves app/website continuity while preserving clear product differentiation | Released |
 | P0 | Website release-readiness changeset | Product baseline and production dependency remediation are accepted | Released |
 | P2 | Development-tooling `brace-expansion` remediation | Full audit has one high-severity DoS group, but production audit is clean | Non-blocking maintenance |
 | P2 | Align `eslint-config-next` with the Next.js line | Lint passes, but the config remains on 16.2.12 after the production-only upgrade | Future dependency maintenance |
@@ -58,6 +50,7 @@ Physical-device coverage remains an accepted uncertainty. One high-severity `bra
 
 | Date | Decision | Rationale |
 | --- | --- | --- |
+| 2026-11-17 | Keep `headwaters.photo` as the public publishing test surface and retain the app at `app.headwaters.photo`. | The two-domain structure creates a useful separation between private creation in the app and public viewing on the website, while preserving room to test the app's publishing model. |
 | 2026-08-08 | Adopt the evaluated website header treatment using exact `#E8F3FF`, `#163A52`, and the accessible `#1776D7` focus treatment. | The prototype improves brand continuity with the app while remaining visibly lighter and editorial; desktop, mobile, open-menu, contrast, layout, and all 42 smoke checks passed without suggesting a color adjustment. |
 | 2026-08-04 | Put the website into maintenance mode and direct near-term product effort to the app. | The current website is healthy and appropriate for the product's present stage; additional website scope would be speculative until app progress supplies concrete content, conversion, pricing, or launch requirements. |
 | 2026-08-04 | Record the website release as successfully deployed at commit `8bcdd0cee634cd28b48770f1bfaeb1c0921fc35e`. | Vercel deployed the synchronized `main` branch; both production routes returned HTTP 200 and the production interaction, image, overflow, accessibility, and console checks passed. |
